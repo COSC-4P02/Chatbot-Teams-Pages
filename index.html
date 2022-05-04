@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- 
+  ___  _  _   __  ____  ____   __  ____       __   __     ___   __  
+ / __)/ )( \ / _\(_  _)(  _ \ /  \(_  _)___  / _\ (  )   / __) / _\ 
+( (__ ) __ (/    \ )(   ) _ ((  O ) )( (___)/    \ )(  _( (_ \/    \
+ \___)\_)(_/\_/\_/(__) (____/ \__/ (__)     \_/\_/(__)(_)\___/\_/\_/ 
+-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="https://api-frame.krunk.cn/main/assets/css/style.min.css">
+  <title>Teams | Chatbot-Ai</title>
+  <meta name="description" content="Group project for Professor Naser Ezzati-Jivan's COSC 4P02 class at Brock Universtiy. Winter 2022 term.">
+  <meta name="keywords" content="brock,brocku,brock chatbot,brock university,chatbot">
+  <script rel="preload" src="https://api-frame.krunk.cn/main/assets/js/scripts.min.js"></script>
+  <style>
+    .btn-fx-1__inner_brock::after {
+        background-color: hsla(0, 100%, 20%, 1) !important;
+    }
+    @media only screen and (max-width: 1024px){
+      #hide-on-mobile{
+        display: none;
+      }
+    }
+    @media only screen and (min-width: 1024px){
+      #show-on-mobile{
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="mega-nav mega-nav--mobile mega-nav--desktop@md position-absolute width-100% js-mega-nav hide-nav js-hide-nav js-hide-nav--main" style="background-color: rgba(240, 240, 240, 0.5);backdrop-filter: blur(8px);-webkit-backdrop-filter: blur(8px);">
+    <div class="mega-nav__container">
+      <!-- 👇 logo -->
+      <a href="https://chatbot-ai.ga" class="">
+        <img src="https://chatbot-ai.ga/images/logo.webp" width="50px">
+      </a>
+
+      <!-- 👇 icon buttons --mobile -->
+      <div class="mega-nav__icon-btns mega-nav__icon-btns--mobile">
+        <button class="reset mega-nav__icon-btn mega-nav__icon-btn--menu js-tab-focus" aria-label="Toggle menu" aria-controls="mega-nav-navigation">
+          <svg class="icon" viewBox="0 0 24 24">
+            <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2">
+              <path d="M1 6h22" />
+              <path d="M1 12h22" />
+              <path d="M1 18h22" />
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <div class="mega-nav__nav js-mega-nav__nav" id="mega-nav-navigation" role="navigation" aria-label="Main">
+        <div class="mega-nav__nav-inner">
+          <ul class="mega-nav__items">
+            <li class="mega-nav__label">Menu</li>
+
+            <!-- 👇 layout 1 -> tabbed content -->
+            <li class="mega-nav__item js-mega-nav__item">
+              <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+                Chatbot
+                <i class="mega-nav__arrow-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 16 16">
+                    <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2">
+                      <path d="M2 2l12 12" />
+                      <path d="M14 2L2 14" />
+                    </g>
+                  </svg>
+                </i>
+              </button>
+
+              <div class="mega-nav__sub-nav-wrapper">
+                <div class="mega-nav__sub-nav mega-nav__sub-nav--layout-1">
+                  <!-- 👇 links - visible on mobile -->
+                  <ul class="mega-nav__sub-items">
+                    <li class="mega-nav__sub-item">
+                      <a href="https://web.chatbot-ai.ga/?bot=brock" class="mega-nav__sub-link">
+                        <span class="flex items-center gap-xs">
+                          <img class="block width-lg height-lg radius-50% object-cover" src="https://chatbot-ai.ga/images/Sir-Isaac-Brock.webp" alt="Image description">
+                          <i>Brock University</i>
+                        </span>
+                      </a>
+                    </li>
+
+                    <li class="mega-nav__sub-item">
+                      <a href="https://web.chatbot-ai.ga/?bot=game" class="mega-nav__sub-link">
+                        <span class="flex items-center gap-xs">
+                          <img class="block width-lg height-lg radius-50% object-cover" src="https://chatbot-ai.ga/images/Canada_Game_icon.webp" alt="Image description">
+                          <i>Canada Games 2022</i>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <!-- 👇 tabs - visible on desktop -->
+                  <div class="mega-nav__tabs grid gap-lg js-tabs" data-tabs-layout="vertical">
+                    <ul class="col-4 mega-nav__tabs-controls js-tabs__controls" aria-label="Select a product">
+                      <li>
+                        <a href="#tabProduct1" class="mega-nav__tabs-control js-tab-focus" aria-selected="true">
+                          <span class="flex items-center gap-xs">
+                            <img class="block width-lg height-lg radius-50% object-cover" src="https://chatbot-ai.ga/images/Sir-Isaac-Brock.webp" alt="Image description">
+                            <i class="margin-right-xxxs">Brock University</i>
+                            <svg class="icon icon--xs margin-left-auto" viewBox="0 0 16 16" aria-hidden="true">
+                              <path d="M5,2l6,6L5,14" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" /></svg>
+                          </span>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#tabProduct2" class="mega-nav__tabs-control js-tab-focus" aria-selected="true">
+                          <span class="flex items-center gap-xs">
+                            <img class="block width-lg height-lg radius-50% object-cover" src="https://chatbot-ai.ga/images/Canada_Game_icon.webp" alt="Image description">
+                            <i class="margin-right-xxxs">Canada Games 2022</i>
+                            <svg class="icon icon--xs margin-left-auto" viewBox="0 0 16 16" aria-hidden="true">
+                              <path d="M5,2l6,6L5,14" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="1" /></svg>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+
+                    <div class="col-8 js-tabs__panels">
+                      <section id="tabProduct1" class="mega-nav__tabs-panel js-tabs__panel">
+                        <a href="https://web.chatbot-ai.ga/?bot=brock" class="mega-nav__tabs-img margin-bottom-md">
+                          <img class="block width-100%" src="https://chatbot-ai.ga/images/brock2.webp" alt="Image description">
+                        </a>
+                        <div class="text-component">
+                          <h1 class="text-xl">Brock University Chatbot</h1>
+                          <p class="color-contrast-medium">You can ask me almost anything about Brock University</p>
+                          <p class="flex gap-xxs">
+                            <a href="https://web.chatbot-ai.ga/?bot=brock" class="btn btn--primary">Ask Me</a>
+                            <a href="https://app.chatbot-ai.ga#brock" class="btn btn--subtle">Download App</a>
+                          </p>
+                        </div>
+                      </section>
+
+                      <section id="tabProduct2" class="mega-nav__tabs-panel js-tabs__panel">
+                        <a href="https://web.chatbot-ai.ga/?bot=game" class="mega-nav__tabs-img margin-bottom-md">
+                          <img class="block width-100%" src="https://chatbot-ai.ga/images/game2.webp" alt="Image description">
+                        </a>
+                        <div class="text-component">
+                          <h1 class="text-xl">Canada Games 2022 Chatbot</h1>
+                          <p class="color-contrast-medium">You can ask me almost anything about Canada Games 2022</p>
+                          <p class="flex gap-xxs">
+                            <a href="https://web.chatbot-ai.ga/?bot=game" class="btn btn--primary">Ask Me</a>
+                            <a href="https://app.chatbot-ai.ga#game" class="btn btn--subtle">Download App</a>
+                          </p>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 👇 layout 3 -> gallery -->
+            <li class="mega-nav__item js-mega-nav__item">
+              <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+                Social
+                <i class="mega-nav__arrow-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 16 16">
+                    <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2">
+                      <path d="M2 2l12 12" />
+                      <path d="M14 2L2 14" />
+                    </g>
+                  </svg>
+                </i>
+              </button>
+
+              <div class="mega-nav__sub-nav-wrapper">
+                <div class="mega-nav__sub-nav mega-nav__sub-nav--layout-3">
+                  <div class="mega-nav__card">
+                    <a href="https://discord.gg/kSDPxkVh5T" class="block radius-lg overflow-hidden" target="_blank">
+                      <figure class="aspect-ratio-4:3">
+                        <img class="block width-100%" src="https://chatbot-ai.ga/images/discord.webp" alt="Image description">
+                      </figure>
+                    </a>
+                    <div class="margin-top-sm">
+                      <h3 class="text-base"><a href="https://discord.gg/kSDPxkVh5T" class="mega-nav__card-title" target="_blank">Discord Channel</a></h3>
+                    </div>
+                  </div>
+
+                  <div class="mega-nav__card">
+                    <a href="https://discord.com/api/oauth2/authorize?client_id=957973848144375868&permissions=8&scope=bot" class="block radius-lg overflow-hidden" target="_blank">
+                      <figure class="aspect-ratio-4:3">
+                        <img class="block width-100%" src="https://chatbot-ai.ga/images/discordbot.webp" alt="Image description">
+                      </figure>
+                    </a>
+                    <div class="margin-top-sm">
+                      <h3 class="text-base"><a href="https://discord.com/api/oauth2/authorize?client_id=957973848144375868&permissions=8&scope=bot" class="mega-nav__card-title" target="_blank">Invite Discord Bot</a></h3>
+                    </div>
+                  </div>
+
+                  <div class="mega-nav__card">
+                    <a href="https://www.facebook.com/Brock-Chat-bot-101894422491148/" class="block radius-lg overflow-hidden" target="_blank">
+                      <figure class="aspect-ratio-4:3">
+                        <img class="block width-100%" src="https://chatbot-ai.ga/images/fb.webp" alt="Image description">
+                      </figure>
+                    </a>
+                    <div class="margin-top-sm">
+                      <h3 class="text-base"><a href="https://www.facebook.com/Brock-Chat-bot-101894422491148/" class="mega-nav__card-title" target="_blank">Facebook Messenger</a></h3>
+                    </div>
+                  </div>
+
+                  
+                </div>
+              </div>
+            </li>
+
+            <!-- 👇 layout 4 -> single list -->
+            <li class="mega-nav__item js-mega-nav__item">
+              <button class="reset mega-nav__control js-mega-nav__control js-tab-focus">
+                Support
+                <i class="mega-nav__arrow-icon" aria-hidden="true">
+                  <svg class="icon" viewBox="0 0 16 16">
+                    <g class="icon__group" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2">
+                      <path d="M2 2l12 12" />
+                      <path d="M14 2L2 14" />
+                    </g>
+                  </svg>
+                </i>
+              </button>
+
+              <div class="mega-nav__sub-nav-wrapper">
+                <div class="mega-nav__sub-nav mega-nav__sub-nav--layout-4">
+                  <ul class="mega-nav__sub-items">
+                    <li class="mega-nav__label">Help &amp; Support</li>
+                    <li class="mega-nav__sub-item"><a href="https://docs.chatbot-ai.ga" class="mega-nav__sub-link" target="_blank">Documentation</a></li>
+                    <li class="mega-nav__sub-item"><a href="https://app.chatbot-ai.ga/privacy.html" class="mega-nav__sub-link">Terms of service</a></li>
+                    <li class="mega-nav__sub-item"><a href="https://github.com/COSC-4P02/COSC4P02Project" class="mega-nav__sub-link" target="_blank">Open Source</a></li>
+                    <li class="mega-nav__sub-item"><a href="mailto:info@chatbot-ai.ga" class="mega-nav__sub-link">Contact us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="mega-nav__label">Other</li>
+          </ul>
+
+          <ul class="mega-nav__items">
+            <!-- 👇 icon buttons --desktop -->
+            <li class="mega-nav__icon-btns mega-nav__icon-btns--desktop">
+              <div class="dropdown inline-block js-dropdown">
+                <div class="mega-nav__icon-btn dropdown__wrapper inline-block">
+                  <a class="color-inherit flex height-100% width-100% flex-center dropdown__trigger js-dropdown__trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </a>
+                  <ul class="dropdown__menu js-dropdown__menu" aria-label="submenu">
+                    <li><a href="https://github.com/COSC-4P02" class="dropdown__item" target="_blank">Chatbot-Ai</a></li>
+                    <li class="dropdown__separator" role="separator"></li>
+                    <li><a href="https://github.com/COSC-4P02/COSC4P02Project" class="dropdown__item" target="_blank">Chatbot Open Source</a></li>
+                    <li><a href="https://github.com/COSC-4P02/Chatbot-App-Code" class="dropdown__item" target="_blank">App Open Source</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <!-- 👇 button -->
+            <li class="mega-nav__item">
+              <a href="https://app.chatbot-ai.ga/" class="btn btn--primary mega-nav__btn">Download App</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<section class="position-relative z-index-10 padding-y-xl" id="main-c">
+  <div class="container max-width-adaptive-xs">
+  <figure class="td-card js-td-card" aria-controls="morph-modal-id" data-morph-img="0" id="main-image-id">
+    <img style="display:none;" data-modal-src="https://chatbot-ai.ga/images/logo.webp" alt="Image Description" id="main-image-inner">
+    <a class="card-v11 " href="#0" style="background-image: url('https://chatbot-ai.ga/images/logo.webp');max-width: 700px;" aria-label="Link description" id="main-image">
+      <div class="card-v11__box width-50% width-50%@md">
+        <div class="padding-md">
+          <p class="text-sm opacity-60% margin-bottom-xxs" id="main-role">Loading</p>
+          <h2 class="text-lg color-inherit" id="main-name">Loading</h2>
+        </div>
+
+        <div class="card-v11__btn padding-x-md">
+          <svg class="card-v11__icon icon" viewBox="0 0 48 48">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="37" y1="14" x2="47" y2="24" />
+              <line x1="47" y1="24" x2="37" y2="34" />
+              <line x1="47" y1="24" x2="1.5" y2="24" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </figure>
+  </div>
+</section>
+
+<div class="margin-bottom-sm margin-top-lg" id="main-title">
+  <div class="container max-width-adaptive-sm">
+    <article class="text-component line-height-lg text-space-y-md">
+      <h1 aria-label="Scroll reveal effects">
+        <span class="reveal-fx reveal-fx--text-mask"><i>Checkout our</i></span>
+        
+        <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="100"><i>Awesome</i></span>
+        
+        <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="200"><i>Team 🌟</i></span>
+      </h1>
+
+      <p class="reveal-fx reveal-fx--translate-up">Click on our avatar to view more! 👇</p>
+    </article>
+  </div>
+</div>
+
+<section class="position-relative z-index-10 padding-y-xl">
+  <div class="container max-width-adaptive-lg">
+<ul class="grid gap-xs">
+  <li class="col-12 col-4@sm" id="main-first-person">
+    <figure class="cursor-pointer" aria-controls="morph-modal-id" data-morph-img="0">
+      <img src="https://avatars.githubusercontent.com/u/26049401" data-modal-src="https://avatars.githubusercontent.com/u/26049401" alt="Image Description">
+    </figure>
+  </li>
+</ul>
+
+<div class="morph-img-modal modal modal--animate-fade flex flex-center bg-black bg-opacity-90% js-morph-img-modal js-modal" id="morph-modal-id">
+  <div class="morph-img-modal__content modal__content max-width-lg bg inner-glow shadow-md opacity-0 js-morph-img-modal__content" role="alertdialog" aria-label="Image modal window">
+    <figure>
+      <img class="morph-img-modal__img js-morph-img-modal__img" src="" alt="Image Preview">
+    </figure>
+
+    <div class="morph-img-modal__info opacity-0 js-morph-img-modal__info"></div>
+  </div>
+</div>
+
+<div class="morph-img-bg bg is-hidden js-morph-img-bg" aria-hidden="true"></div>
+<div class="morph-img-clone is-hidden js-morph-img-clone" aria-hidden="true"></div>
+
+<button class="reset morph-img-close-btn js-tab-focus js-morph-img-close-btn">
+  <svg class="icon icon--sm" viewBox="0 0 24 24">
+    <title>Close Window</title>
+    <g fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="3" x2="21" y2="21" />
+      <line x1="21" y1="3" x2="3" y2="21" />
+    </g>
+  </svg>
+</button>
+  </div>
+</section>
+
+<div class="margin-bottom-xl margin-top-lg">
+  <div class="container max-width-adaptive-sm">
+    <article class="text-component line-height-lg text-space-y-md">
+      <h1 aria-label="Scroll reveal effects">
+        <span class="reveal-fx reveal-fx--text-mask"><i>Try out</i></span>
+        
+        <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="100"><i>Our</i></span>
+        
+        <span class="reveal-fx reveal-fx--text-mask" data-reveal-fx-delay="200"><i>Chatbot Program</i></span>
+      </h1>
+
+      <p class="reveal-fx reveal-fx--translate-up">Click and GO! 👇</p>
+    </article>
+  </div>
+</div>
+
+<section class="feature-v9 position-relative z-index-1">
+    <div class="grid">
+      <div class="feature-v9__block col-6@md" style="background-image: url('https://chatbot-ai.ga/images/brock.webp');">
+        <div class="feature-v9__content text-center max-width-xxs">
+          <div class="text-component">
+            <p class="text-md color-inherit" style="margin-bottom: 0px;">Have Questions About</p>
+            <h2 class="text-xxl color-inherit" style="margin-top: 0px;">Brock University ?</h2>
+            <p class="opacity-90%">You can ask me about Brock University</p>
+          </div>
+
+          <div class="margin-top-sm"><a class="feature-v9__link" href="https://web.chatbot-ai.ga/?bot=brock">Ask Me</a> <a class="feature-v9__link" href="https://app.chatbot-ai.ga/" id="show-on-mobile">App</a></div>
+        </div>
+      </div>
+
+      <div class="feature-v9__block col-6@md" style="background-image: url('https://chatbot-ai.ga/images/game.webp');">
+        <div class="feature-v9__content text-center max-width-xxs">
+          <div class="text-component">
+            <p class="text-md color-inherit" style="margin-bottom: 0px;">Have Questions About</p>
+            <h2 class="text-xxl color-inherit" style="margin-top: 0px;">Canada Games ?</h2>
+            <p class="opacity-90%">You can ask me about Canada Games 2022</p>
+          </div>
+
+          <div class="margin-top-sm"><a class="feature-v9__link" href="https://web.chatbot-ai.ga/?bot=game">Ask Me</a> <a class="feature-v9__link" href="https://app.chatbot-ai.ga/" id="show-on-mobile">App</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+    
+
+    var developers = [
+    {
+        id: 1,
+        name: "Dazhi Gao",
+        role: "Leader",
+        image: "https://avatars.githubusercontent.com/u/78173335?v=4",
+        content: '<div class="text-component padding-md"><h1>Dazhi Gao</h1><p class="color-contrast-medium">Leader</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 0,
+        name: "Tianyu Zhou",
+        role: "Lead Developer",
+        image: "https://avatars.githubusercontent.com/u/26049401",
+        content: '<div class="text-component padding-md"><h1>Tianyu Zhou</h1><p class="color-contrast-medium">Full Stack Developer</p><p class="color-contrast-medium"><a href="https://github.com/KrunkZhou">https://github.com/KrunkZhou</a></p></div>'
+    },
+    {
+        id: 2,
+        name: "Wenjie Li",
+        role: "Crawler Developer",
+        image: "https://avatars.githubusercontent.com/u/64762591?v=4",
+        content: '<div class="text-component padding-md"><h1>Wenjie Li</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 3,
+        name: "Zijian Feng",
+        role: "Frontend Developer",
+        image: "https://avatars.githubusercontent.com/u/81278734?v=4",
+        content: '<div class="text-component padding-md"><h1>Zijian Feng</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 4,
+        name: "Jiayang Lai",
+        role: "Developer",
+        image: "https://avatars.githubusercontent.com/u/21290799?v=4",
+        content: '<div class="text-component padding-md"><h1>Jiayang Lai</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 5,
+        name: "Icarus Zhu",
+        role: "Frontend Developer",
+        image: "https://avatars.githubusercontent.com/u/37007493?v=4",
+        content: '<div class="text-component padding-md"><h1>Icarus Zhu</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 6,
+        name: "Junhui Chen",
+        role: "Crawler Developer",
+        image: "https://avatars.githubusercontent.com/u/92129755?v=4",
+        content: '<div class="text-component padding-md"><h1>Junhui Chen</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    },
+    {
+        id: 7,
+        name: "Siyuan Zhao",
+        role: "Developer",
+        image: "https://avatars.githubusercontent.com/u/79997975?v=4",
+        content: '<div class="text-component padding-md"><h1>Siyuan Zhao</h1><p class="color-contrast-medium">Developer</p><p class="color-contrast-medium">DESCRIPTION</p></div>'
+    }
+    ];
+
+    // Main C
+    var url = new URL(location.href);
+    var id = url.searchParams.get("c");
+    if (id){
+      document.getElementById("main-title").classList.remove("margin-top-lg");
+      document.getElementById("main-name").textContent = developers[id]['name'];
+      document.getElementById("main-image-id").setAttribute("data-morph-img", developers[id]['id']);
+      document.getElementById("main-image-inner").setAttribute("data-modal-src", developers[id]['image']);
+      document.getElementById("main-image").style = "background-image: url('"+developers[id]['image']+"');max-width: 700px;";
+      document.getElementById("main-role").textContent = developers[id]['role'];
+    }else{
+      document.getElementById("main-c").style = "display: none;";    }
+
+    // New Morph Modal
+    var morphModal = document.getElementsByClassName('js-morph-img-modal')[0];
+    new MorphImgModal({
+        element: morphModal,
+        searchData: function(trigger, cb) {
+            var imageId = trigger.getAttribute('data-morph-img') || 1;
+            var data = developers.filter(function(item) {
+                return item['id'] == imageId;
+            });
+            cb(data[0]['content']);
+        }
+    });
+
+    function createElementFromHTML(htmlString) {
+      var div = document.createElement('div');
+      div.innerHTML = htmlString.trim();
+      return div.firstChild;
+    }
+    function createCardElement(id,img){
+      return createElementFromHTML(`<li class="col-12 col-4@sm" id="main-first-person">
+    <figure class="cursor-pointer" aria-controls="morph-modal-id" data-morph-img="`+id+`">
+      <img src="`+img+`" data-modal-src="`+img+`" alt="Image Description">
+    </figure>
+  </li>`);
+    }
+    function insertAfter(referenceNode, newNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+
+    for (var i = developers.length - 1; i >= 0; i--) {
+      insertAfter(document.getElementById("main-first-person"),createCardElement(developers[i]['id'],developers[i]['image']))
+    }
+    document.getElementById("main-first-person").remove();
+  </script>
+
+<!-- Footer -->
+<footer class="footer-v5 padding-y-lg">
+  <div class="container max-width-lg">
+    <div class="border-bottom padding-bottom-xs text-sm@md flex@md justify-between@md items-center@md">
+      <h4 class="margin-bottom-xs hide@md"></h4>
+      <nav></nav>
+      <a href="#" class="footer-v5__back-to-top display@md">Back to top &uarr;</a>
+    </div>
+    <!-- Footer Links -->
+    <div class="padding-y-xl grid gap-md">
+      <div class="col-8@lg">
+        <div class="grid gap-md">
+          <div class="col-6@xs col-3@md">
+            <h4 class="margin-bottom-xs text-base@md">Product</h4>
+            <ul class="grid gap-xs text-sm@md">
+              <li><a class="footer-v5__link" href="https://teams.chatbot-ai.ga/">Teams</a></li>
+              <li><a class="footer-v5__link" href="https://docs.chatbot-ai.ga/guide/getting-started.html">Tutorials</a></li>
+              <li><a class="footer-v5__link" href="mailto:info@chatbot-ai.ga">Contact</a></li>
+              <li><a class="footer-v5__link" href="https://docs.chatbot-ai.ga/code/open-source.html">License</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6@xs col-3@md">
+            <h4 class="margin-bottom-xs text-base@md">Developers</h4>
+            <ul class="grid gap-xs text-sm@md">
+              <li><a class="footer-v5__link" href="https://docs.chatbot-ai.ga">Documentation</a></li>
+              <li><a class="footer-v5__link" href="https://docs.chatbot-ai.ga/api/chat.html">API Reference</a></li>
+              <li><a class="footer-v5__link" href="http://uptime.krunk.cn" target="_blank">API Status</a></li>
+              <li><a class="footer-v5__link" href="https://github.com/COSC-4P02/" target="_blank">Open Source</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6@xs col-3@md">
+            <h4 class="margin-bottom-xs text-base@md">BrockU</h4>
+            <ul class="grid gap-xs text-sm@md">
+              <li><a class="footer-v5__link" href="https://brocku.ca" rel=”noreferrer” target="_blank">Website</a></li>
+              <li><a class="footer-v5__link" href="https://brocku.ca/brock-news/" rel=”noreferrer” target="_blank">News</a></li>
+              <li><a class="footer-v5__link" href="https://brocku.ca/library" rel=”noreferrer” target="_blank">Library</a></li>
+              <li><a class="footer-v5__link" href="https://brocku.ca/guides-and-timetables/timetables/" rel=”noreferrer” target="_blank">Timetables</a></li>
+              <li><a class="footer-v5__link" href="https://brocku.ca/webcal/" rel=”noreferrer” target="_blank">Web Calendars</a></li>
+              <li><a class="footer-v5__link" href="https://brocku.ca/important-dates/" rel=”noreferrer” target="_blank">Important Dates</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6@xs col-3@md">
+            <h4 class="margin-bottom-xs text-base@md">Games 2022</h4>
+            <ul class="grid gap-xs text-sm@md">
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca" rel=”noreferrer” target="_blank">Website</a></li>
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca/in-the-loop" rel=”noreferrer” target="_blank">News</a></li>
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca/about" rel=”noreferrer” target="_blank">About</a></li>
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca/sports" rel=”noreferrer” target="_blank">Sports</a></li>
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca/teams" rel=”noreferrer” target="_blank">Teams</a></li>
+              <li><a class="footer-v5__link" href="https://www.canadagames.ca/athletes" rel=”noreferrer” target="_blank">Athletes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4@lg">
+        <div class="max-width-xxs">
+          <div class="text-component margin-bottom-sm">
+            <h4 class="text-base@md">About Our Project</h4>
+            <p class="text-sm color-contrast-medium">Group project for Professor Naser Ezzati-Jivan's COSC 4P02 class at Brock Universtiy. Winter 2022 term.</p>
+            <p class="text-sm color-contrast-medium">COSC 4P02 - Software Engineering 2</p>
+            <p class="text-sm color-contrast-medium">Application of software engineering. The development of a large-scale software engineering project in a competitive team setting, including creation of complete documentation for a working system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="border-top padding-top-sm">
+      <div class="flex flex-column items-center gap-sm flex-row@md justify-between@md">
+        <div>
+          <p class="text-sm color-contrast-medium text-xs@md">&copy; Copyright Chatbot-Ai 2022</p>
+          <p class="text-sm color-contrast-medium text-xs@md">Images and contents may come from brocku.ca and canadagames.ca</p>
+        </div>
+  
+        <div>
+          <p class="text-sm color-contrast-medium flex flex-wrap gap-xs text-xs@md">
+            <a class="color-inherit text-underline" href="https://app.chatbot-ai.ga/privacy.html">Terms</a>
+            <a class="color-inherit text-underline" href="https://app.chatbot-ai.ga/privacy.html">Privacy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://api-frame.krunk.cn/main/assets/js/scripts.min.js"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-620XBF3V1E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-620XBF3V1E');
+  </script>
+</body>
+</html>
