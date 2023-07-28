@@ -1,3 +1,3 @@
 # Chatbot-Ai Teams Page
 
-[Try it now](https://teams.chatbot-ai.ga)
+[Try it now](https://teams.chatbot-ai.gq)
